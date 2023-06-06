@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 04:16:45 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/06/06 02:00:33 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/06/06 02:04:17 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	main(int argc, char **argv)
 {
-	int	server_pid;
-	char *argv_ptr;
+	int		server_pid;
+	char	*argv_ptr;
 
 	if (argc != 3)
 	{
