@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 00:33:20 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/06/07 00:48:49 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/06/08 17:24:00 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ int	main(void)
 	}
 }
 
-void	ft_print_memory(char c)
-{
-	for (int i = 7; i >= 0; i--)
-	{
-		ft_putchar_fd((c & (1 << i)) ? '1' : '0', 0);
-	}
-	ft_printf("\n");
-}
+// void	ft_print_memory(char c)
+// {
+// 	for (int i = 7; i >= 0; i--)
+// 	{
+// 		ft_putchar_fd((c & (1 << i)) ? '1' : '0', 0);
+// 	}
+// 	ft_printf("\n");
+// }
 
 char	*join_char_to_string(char *str, unsigned char c)
 {
@@ -62,9 +62,7 @@ void	sig_handler(int sig_number)
 	static char	*buffer_string;
 
 	if (sig_number == SIGUSR2)
-	{
 		buffer_char |= 1;
-	}
 	bit_count++;
 	if (bit_count != 8)
 		buffer_char <<= 1;
