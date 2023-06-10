@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 00:33:20 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/06/08 17:24:00 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/06/10 03:40:51 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ void	sig_handler(int sig_number)
 		buffer_string = join_char_to_string(buffer_string, buffer_char);
 		if (!buffer_char)
 		{
-			ft_printf("%s\n", buffer_string);
+			if (ft_strlen(buffer_string) > 0)
+				ft_printf("%s\n", buffer_string);
 			free(buffer_string);
 			buffer_string = NULL;
 		}

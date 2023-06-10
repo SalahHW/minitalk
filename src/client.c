@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 04:16:45 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/06/06 02:04:17 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/06/10 03:10:36 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,7 @@ int	main(int argc, char **argv)
 	int		server_pid;
 	char	*argv_ptr;
 
-	if (argc != 3)
-	{
-		ft_putstr_fd("Wrong use of the client : ", 2);
-		ft_putstr_fd("./client \"server PID\" \"message\"\n", 2);
-		exit(1);
-	}
+	parse(argc, argv);
 	argv_ptr = argv[2];
 	server_pid = ft_atoi(argv[1]);
 	send_message(server_pid, argv_ptr);
@@ -50,6 +45,6 @@ void	send_bits_from_char(int pid, unsigned char c)
 		else
 			kill(pid, SIGUSR1);
 		bit_count--;
-		usleep(100);
+		usleep(10);
 	}
 }

@@ -6,7 +6,7 @@
 #    By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/04 05:16:53 by sbouheni          #+#    #+#              #
-#    Updated: 2023/06/07 00:31:35 by sbouheni         ###   ########.fr        #
+#    Updated: 2023/06/10 02:46:55 by sbouheni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,10 @@ DEBUG		=	$(CC) $(DEBUGFLAGS)
 LIBNAME		=	libft.a
 NAME		=	client server
 
+SRCS		=	src/parser.c src/error.c
+
+OBJS		=	$(SRCS:.c=.o)
+
 all : $(NAME)
 
 client : ./src/client.c $(LIBNAME)
@@ -26,9 +30,10 @@ client : ./src/client.c $(LIBNAME)
 server : ./src/server.c $(LIBNAME)
 	$(COMPILE) ./src/server.c $(LIBNAME) -o server
 
-$(LIBNAME) :
+$(LIBNAME) : $(OBJS)
 	make -C libft
 	mv ./libft/libft.a .
+	ar rcs $(LIBNAME) minitalk.a $(OBJS)
 
 clean : 
 	rm -f $(LIBNAME)
