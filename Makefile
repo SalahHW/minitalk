@@ -6,7 +6,7 @@
 #    By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/04 05:16:53 by sbouheni          #+#    #+#              #
-#    Updated: 2023/06/10 02:46:55 by sbouheni         ###   ########.fr        #
+#    Updated: 2023/06/13 08:29:53 by sbouheni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ DEBUG		=	$(CC) $(DEBUGFLAGS)
 LIBNAME		=	libft.a
 NAME		=	client server
 
-SRCS		=	src/parser.c src/error.c
+SRCS		=	src/parser.c src/error.c src/utils.c
 
 OBJS		=	$(SRCS:.c=.o)
 

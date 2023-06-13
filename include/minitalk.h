@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 04:20:01 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/06/13 07:51:19 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/06/13 09:29:55 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,6 @@
 # include <signal.h>
 # include <stdlib.h>
 
-//		sig_handler.c
-void	sig_handler(int signal);
-void	send_message(int server_pid, char *message);
-void	send_bits_from_char(int pid, unsigned char c);
 //		parser.c
 void	parse(int argc, char **argv);
 //		error.c
