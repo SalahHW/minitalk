@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 00:33:20 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/06/11 04:31:10 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/06/13 08:25:45 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,30 +29,20 @@ int	main(void)
 	}
 }
 
-// void	ft_print_memory(char c)
-// {
-// 	for (int i = 7; i >= 0; i--)
-// 	{
-// 		ft_putchar_fd((c & (1 << i)) ? '1' : '0', 0);
-// 	}
-// 	ft_printf("\n");
-// }
-
-char	*join_char_to_string(char *str, unsigned char c)
+void	process_message(char c)
 {
-	char	*new_string;
-	char	*new_string_ptr;
+	static char *message;
 
-	if (!str && !c)
-		return (NULL);
-	new_string = ft_calloc(ft_strlen(str) + 2, 1);
-	if (!new_string)
-		return (NULL);
-	new_string_ptr = new_string;
-	while (*str)
-		*new_string_ptr++ = *str++;
-	*new_string_ptr = c;
-	return (new_string);
+	if (!message)
+		message = ft_calloc(1, 1);
+	message = join_char_to_string(message, c);
+	if (!c)
+	{
+		if (ft_strlen(message) > 0)
+			ft_printf("%s\n", message);
+		free(message);
+		message = NULL;
+	}
 }
 
 void	sig_handler(int sig_number)
@@ -68,16 +58,7 @@ void	sig_handler(int sig_number)
 		buffer_char <<= 1;
 	else
 	{
-		if (!buffer_string)
-			buffer_string = ft_calloc(1, 1);
-		buffer_string = join_char_to_string(buffer_string, buffer_char);
-		if (!buffer_char)
-		{
-			if (ft_strlen(buffer_string) > 0)
-				ft_printf("%s\n", buffer_string);
-			free(buffer_string);
-			buffer_string = NULL;
-		}
+		process_message(buffer_char);
 		bit_count = 0;
 		buffer_char = 0;
 	}
