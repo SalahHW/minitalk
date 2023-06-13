@@ -6,7 +6,7 @@
 #    By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/04 05:16:53 by sbouheni          #+#    #+#              #
-#    Updated: 2023/06/13 08:29:53 by sbouheni         ###   ########.fr        #
+#    Updated: 2023/06/13 17:17:11 by sbouheni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CFLAGS		=	-Wall -Wextra -Werror
 DEBUGFLAGS	=	-g -fsanitize=address
 COMPILE 	= 	$(CC) $(CFLAGS)
 DEBUG		=	$(CC) $(DEBUGFLAGS)
-LIBNAME		=	libft.a
+LIBNAME		=	minitalk.a
 NAME		=	client server
 
 SRCS		=	src/parser.c src/error.c src/utils.c
@@ -32,8 +32,9 @@ server : ./src/server.c $(LIBNAME)
 
 $(LIBNAME) : $(OBJS)
 	make -C libft
-	mv ./libft/libft.a .
-	ar rcs $(LIBNAME) minitalk.a $(OBJS)
+	cp ./libft/libft.a .
+	mv	libft.a $(LIBNAME)
+	ar rcs $(LIBNAME) $(OBJS)
 
 clean : 
 	rm -f $(LIBNAME)
