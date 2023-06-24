@@ -6,12 +6,13 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 04:16:45 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/06/14 01:18:12 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/06/24 13:12:10 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minitalk.h"
 
+int			g_sig_status;
 static void	send_bits_from_char(int pid, unsigned char c)
 {
 	int	bit_count;
@@ -19,13 +20,23 @@ static void	send_bits_from_char(int pid, unsigned char c)
 	bit_count = 7;
 	while (bit_count >= 0)
 	{
+		g_sig_status = 1;
 		if (1 & c >> bit_count)
 			kill(pid, SIGUSR2);
 		else
 			kill(pid, SIGUSR1);
+		while (g_sig_status)
+			;
 		bit_count--;
-		usleep(100);
 	}
+}
+
+static void	client_sig_handler(int signum)
+{
+	if (signum == SIGUSR1)
+		ft_printf("Message received\n");
+	else
+		g_sig_status = 0;
 }
 
 static void	send_message(int server_pid, char *message)
@@ -46,5 +57,8 @@ int	main(int argc, char **argv)
 	parse(argc, argv);
 	server_pid = ft_atoi(argv[1]);
 	argv_ptr = argv[2];
+	signal(SIGUSR1, client_sig_handler);
+	signal(SIGUSR2, client_sig_handler);
+	g_sig_status = 0;
 	send_message(server_pid, argv_ptr);
 }

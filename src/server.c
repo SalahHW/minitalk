@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 00:33:20 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/06/18 22:00:18 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/06/24 13:13:18 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,28 +29,11 @@ static void	process_message(unsigned char c, int client_pid)
 		if (ft_strlen(message) > 0)
 		{
 			ft_printf("%s\n", message);
+			kill(client_pid, SIGUSR1);
 		}
 		free(message);
 		message = NULL;
 	}
-}
-
-void	print_memory(char c)
-{
-	int	i;
-
-	i = 7;
-	while (i >= 0)
-	{
-		if (c & (1 << i))
-		{
-			ft_printf("1");
-		}
-		else
-			ft_printf("0");
-		i--;
-	}
-	ft_printf("\n");
 }
 
 static void	server_sig_handler(int sig_number, siginfo_t *siginfo, void *c)
@@ -63,15 +46,14 @@ static void	server_sig_handler(int sig_number, siginfo_t *siginfo, void *c)
 		buffer_char |= 1;
 	bit_count++;
 	if (bit_count != 8)
-	{
 		buffer_char <<= 1;
-	}
 	if (bit_count == 8)
 	{
 		process_message(buffer_char, siginfo->si_pid);
 		bit_count = 0;
 		buffer_char = 0;
 	}
+	kill(siginfo->si_pid, SIGUSR2);
 }
 
 int	main(void)
@@ -88,6 +70,6 @@ int	main(void)
 	ft_printf("Server running, PID : %d\n", getpid());
 	while (1)
 	{
-		sleep(30);
+		pause();
 	}
 }
