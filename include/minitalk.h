@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 04:20:01 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/06/13 09:29:55 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/06/24 20:17:34 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 //		parser.c
 void	parse(int argc, char **argv);
 //		error.c
+void	exit_error(void);
 void	exit_arg_error(void);
 void	exit_pid_error(void);
 //		utils.c

@@ -6,11 +6,17 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 02:30:17 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/06/10 03:26:08 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/06/24 20:17:20 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minitalk.h"
+
+void	exit_error(void)
+{
+	ft_printf("Error");
+	exit(1);
+}
 
 void	exit_arg_error(void)
 {
