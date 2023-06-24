@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 00:33:20 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/06/24 13:13:18 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/06/24 20:13:53 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,5 @@ int	main(void)
 	sigaction(SIGUSR2, &sigusr2, NULL);
 	ft_printf("Server running, PID : %d\n", getpid());
 	while (1)
-	{
 		pause();
-	}
 }
