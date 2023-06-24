@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 00:33:20 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/06/24 20:13:53 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/06/24 20:18:56 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ static void	process_message(unsigned char c, int client_pid)
 	if (!message)
 		message = ft_calloc(1, 1);
 	if (!message)
-	{
-		ft_printf("Error\n");
-		exit(2);
-	}
+		exit_error();
 	message = join_char_to_string(message, c);
 	if (!c)
 	{
