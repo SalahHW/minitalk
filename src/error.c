@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 02:30:17 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/06/24 20:17:20 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/06/24 20:31:42 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	exit_error(void)
 {
-	ft_printf("Error");
+	ft_printf("Error\n");
 	exit(1);
 }
 
