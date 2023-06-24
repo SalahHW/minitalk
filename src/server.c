@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 00:33:20 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/06/24 20:18:56 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/06/24 21:34:50 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	server_sig_handler(int sig_number, siginfo_t *siginfo, void *c)
 	bit_count++;
 	if (bit_count != 8)
 		buffer_char <<= 1;
-	if (bit_count == 8)
+	else
 	{
 		process_message(buffer_char, siginfo->si_pid);
 		bit_count = 0;
