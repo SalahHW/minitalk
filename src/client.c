@@ -6,13 +6,14 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 04:16:45 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/06/24 13:12:10 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/06/24 14:42:26 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minitalk.h"
 
 int			g_sig_status;
+
 static void	send_bits_from_char(int pid, unsigned char c)
 {
 	int	bit_count;
