@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 00:33:20 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/06/24 21:34:50 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/06/25 20:51:42 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,12 @@ static void	server_sig_handler(int sig_number, siginfo_t *siginfo, void *c)
 
 int	main(void)
 {
-	struct sigaction	sigusr1;
-	struct sigaction	sigusr2;
+	struct sigaction	sigusr;
 
-	sigusr1.sa_sigaction = &server_sig_handler;
-	sigusr2.sa_sigaction = &server_sig_handler;
-	sigusr1.sa_flags = SA_SIGINFO;
-	sigusr2.sa_flags = SA_SIGINFO;
-	sigaction(SIGUSR1, &sigusr1, NULL);
-	sigaction(SIGUSR2, &sigusr2, NULL);
+	sigusr.sa_sigaction = &server_sig_handler;
+	sigusr.sa_flags = SA_SIGINFO;
+	sigaction(SIGUSR1, &sigusr, NULL);
+	sigaction(SIGUSR2, &sigusr, NULL);
 	ft_printf("Server running, PID : %d\n", getpid());
 	while (1)
 		pause();
