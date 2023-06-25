@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 04:20:01 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/06/24 20:17:34 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/06/26 01:11:32 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	parse(int argc, char **argv);
 void	exit_error(void);
 void	exit_arg_error(void);
 void	exit_pid_error(void);
+void	exit_time_out(void);
 //		utils.c
 char	*join_char_to_string(char *str, unsigned char c);
 
