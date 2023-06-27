@@ -6,7 +6,7 @@
 /*   By: sbouheni <sbouheni@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 04:16:45 by sbouheni          #+#    #+#             */
-/*   Updated: 2023/06/26 01:16:26 by sbouheni         ###   ########.fr       */
+/*   Updated: 2023/06/27 15:34:40 by sbouheni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	send_bits_from_char(int pid, unsigned char c)
 		while (g_sig_status)
 		{
 			sleep(10);
-			if(g_sig_status)
+			if (g_sig_status)
 				exit_time_out();
 		}
 		bit_count--;
